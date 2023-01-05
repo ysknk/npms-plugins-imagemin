@@ -36,8 +36,6 @@ const savedObj = (before, after) => {
   }
 }
 
-const webpRegExp = new RegExp(argv.webp, 'i')
-
 glob.sync(argv.src, {
   ignore: argv.ignore,
   cwd: argv.cwd
@@ -50,10 +48,9 @@ glob.sync(argv.src, {
 
   ;(async () => {
     const input = path.resolve(filepath)
-    const formatKey = key.replace(webpRegExp, '.webp')
     const output = path.resolve(
       path.join(process.cwd(),
-      `${argv.dest}${formatKey}`)
+      `${argv.dest}${key}`)
     )
 
     const file = await imagemin([ filepath ], {
@@ -61,10 +58,12 @@ glob.sync(argv.src, {
       plugins: argv.plugins,
     })
 
+    const destPath = file && file[0] && file[0].destinationPath
+
     // NOTE: console file size
     try {
       const before = await utils.file.stats(input)
-      const after = await utils.file.stats(output)
+      const after = await utils.file.stats(destPath)
 
       total.size.before += before.stat.size || 0
       total.size.after += after.stat.size || 0
@@ -73,11 +72,13 @@ glob.sync(argv.src, {
 
       utils.message.success([
         `${packageName}:`,
-        `${argv.dest}${formatKey}`,
+        `${argv.dest + path.relative(argv.dest, destPath)}`,
         `${utils.color.colors.brightBlack(after.size)}`,
         `${utils.color.colors.brightBlack(saved.text)}`
       ].join(' '), {ptime: false})
+
       successCount++
+
     } catch (e) {
       console.log(e)
     }
