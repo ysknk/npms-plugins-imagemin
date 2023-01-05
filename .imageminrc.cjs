@@ -4,8 +4,6 @@ module.exports = {
   src: "**/[!_]*.{jpg,png,gif,svg}",
   dest: "./test/after/",
 
-  webp: "\.(jpg|png)$",// NOTE: .gif not work
-
   // plugins: [
   //   require('imagemin-pngquant')({
   //     quality: [0.5, 1.0]
