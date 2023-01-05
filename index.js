@@ -59,6 +59,7 @@ glob.sync(argv.src, {
     })
 
     const destPath = file && file[0] && file[0].destinationPath
+    const destRelativePath = `${argv.dest}${path.relative(argv.dest, destPath)}`
 
     // NOTE: console file size
     try {
@@ -72,7 +73,7 @@ glob.sync(argv.src, {
 
       utils.message.success([
         `${packageName}:`,
-        `${argv.dest + path.relative(argv.dest, destPath)}`,
+        `${destRelativePath}`,
         `${utils.color.colors.brightBlack(after.size)}`,
         `${utils.color.colors.brightBlack(saved.text)}`
       ].join(' '), {ptime: false})
