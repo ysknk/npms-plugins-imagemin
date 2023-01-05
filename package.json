@@ -1,0 +1,36 @@
+{
+  "name": "glob-imagemin",
+  "version": "0.1.0",
+  "description": "glob imagemin cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./bin/imagemin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ysknk/glob-imagemin.git"
+  },
+  "bin": {
+    "imagemin": "./bin/imagemin.js"
+  },
+  "type": "module",
+  "keywords": [
+    "imagemin",
+    "javascript",
+    "js"
+  ],
+  "author": "ysknk",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^8.0.3",
+    "imagemin": "^8.0.1",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^9.0.0",
+    "imagemin-webp": "^6.0.0",
+    "node-package-utilities": "github:ysknk/node-package-utilities",
+    "path": "^0.12.7",
+    "yargs": "^17.6.2"
+  }
+}
