@@ -1,4 +1,4 @@
-# glob-imagemin
+# npms-plugins-imagemin
 
 ## Description
 
@@ -13,7 +13,7 @@ imageminをcli化。globで複数ファイルを圧縮できるようにした�
 ## Install
 
 ```sh
-npm i -D https://github.com/ysknk/glob-imagemin.git
+npm i -D https://github.com/ysknk/npms-plugins-imagemin.git
 ```
 
 ## Usage
