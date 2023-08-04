@@ -1,5 +1,5 @@
 {
-  "name": "glob-imagemin",
+  "name": "npms-plugins-imagemin",
   "version": "0.1.0",
   "description": "glob imagemin cli",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:ysknk/glob-imagemin.git"
+    "url": "git+ssh://git@github.com:ysknk/npms-plugins-imagemin.git"
   },
   "bin": {
     "imagemin": "./bin/imagemin.js"
